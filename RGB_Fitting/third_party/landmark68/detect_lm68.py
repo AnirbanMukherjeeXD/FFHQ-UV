@@ -107,6 +107,6 @@ def load_lm_graph(graph_filename):
         img_224 = graph.get_tensor_by_name('net/input_imgs:0')
         output_lm = graph.get_tensor_by_name('net/lm:0')
         # lm_sess = tf.Session(graph=graph)
-        lm_sess = tf.InteractiveSession(graph=graph)
+        lm_sess = tf.compat.v1.InteractiveSession(graph=graph)
 
     return lm_sess, img_224, output_lm
