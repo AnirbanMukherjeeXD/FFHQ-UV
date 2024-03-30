@@ -98,8 +98,8 @@ def detect_68p(img, five_points, sess, input_op, output_op):
 
 # create tensorflow graph for landmark detector
 def load_lm_graph(graph_filename):
-    with tf.gfile.GFile(graph_filename, 'rb') as f:
-        graph_def = tf.GraphDef()
+    with tf.io.gfile.GFile(graph_filename, 'rb') as f:
+        graph_def = tf.compat.v1.GraphDef()
         graph_def.ParseFromString(f.read())
 
     with tf.Graph().as_default() as graph:
